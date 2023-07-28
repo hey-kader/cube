@@ -2,7 +2,7 @@ Cube = require "cube"
 
 function love.load ()
     cube = Cube()
-    cube:load (64)
+    cube:load (128)
 end
 
 function love.update (dt)
