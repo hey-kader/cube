@@ -8,21 +8,24 @@ function cube.mt:__call ()
 			 width = 1
 		 },
 		 style = "smooth",
-		 position = {
-			 x = love.graphics.getWidth()/2,
-			 y = love.graphics.getHeight()/2 
-		 }
 	 } 
-   function cube:load (size)
+   function cube:load (size, position_x, position_y)
+		 cube.position = {
+			 x=position_x or 0,
+			 y=position_y or 0
+		 }
     if size then
         cube.canvas = love.graphics.newCanvas(size, size) 
     else
-        cube.canvas = love.graphics.newCanvas(32, 32) 
+        cube.canvas = love.graphics.newCanvas(64,64) 
     end
+		
 		love.graphics.setLineWidth(cube.kern.width)
 		love.graphics.setLineStyle(cube.style)
+		--[[
 		cube.position.x = cube.position.x - cube.canvas:getWidth()/2
 		cube.position.y = cube.position.y - cube.canvas:getHeight()/2
+		--]]
 
     cube.points = {
         {
