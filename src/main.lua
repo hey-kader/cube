@@ -18,9 +18,10 @@ end
 function grid ()
 	local grid = love.graphics.newCanvas(1024, 1024)
 	love.graphics.setCanvas(grid)
-	for x=1,8 do
-		for y=1, 8 do
-			love.graphics.draw(cube.canvas, ((x*64)/2+(y*32)), (((y*32)-(x*64)/2))/2)
+	_x, _y = (love.graphics.getWidth()/2), (love.graphics.getHeight()/2)-grid:getHeight()/2
+	for x=1,4 do
+		for y=1,4 do
+			love.graphics.draw(cube.canvas, _x+((x*64)/2+(y*32)), _y+(((y*32)-(x*64)/2))/2)
 		end
 	end
 	love.graphics.setCanvas()
